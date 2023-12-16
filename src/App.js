@@ -1,22 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header';
+import Cards from './components/Cards';
+import { Route, Routes } from 'react-router-dom';
+import AddMovie from './components/AddMovie';
+
 
 function App() {
   return (
-    <div className="App">
-    <h2 className=' text-red-200'>Hello filmyverse</h2>
-    <h3>Shubham sagar</h3>
-    <h3>Shubham sagar</h3>
-    <h3>Shubham sagar</h3>
-    <h3>Shubham sagar</h3>
-    <h3>Shubham sagar</h3>
-    <h3>Shubham sagar</h3>
-    <h3>Shubham sagar</h3>
-    <h3>Shubham sagar</h3>
-    <h3>Shubham sagar</h3>
-    <h3>Shubham sagar</h3>
-    <h3>Shubham sagar</h3>
-    <h3>Shubham sagar</h3>
+    <div>
+      <Header/>
+      <Routes>
+        <Route path='/' element={<Cards/>}/>
+        <Route path='/addmovie' element={<AddMovie/>}/>
+      </Routes>
+      
     </div>
   );
 }
