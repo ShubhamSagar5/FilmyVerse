@@ -7,7 +7,7 @@ import AddMovie from './components/AddMovie';
 
 function App() {
   return (
-    <div>
+    <div className=' relative'>
       <Header/>
       <Routes>
         <Route path='/' element={<Cards/>}/>
