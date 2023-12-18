@@ -17,6 +17,8 @@ const Detail = () => {
     year: "",
     description: "",
     imageUrl: "",
+    rating: 0,
+    rated: 0
   });
 
   const getData = async () => {
@@ -54,9 +56,9 @@ const Detail = () => {
               {data.title} <span className="text-2xl">({data.year})</span>
             </h1>
 
-            <ReactStars size={20} half={true} value={5} edit={false} />
+            <ReactStars size={20} half={true} value={data.rating / data.rated} edit={false} />
             <p className="mt-2">{data.description}</p>
-            <Review id={id}/>
+            <Review id={id} prevRating={data.rating} userRated ={data.rated}/>
           </div>
         </>
       )}

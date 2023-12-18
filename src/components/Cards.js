@@ -32,12 +32,12 @@ const Cards = () => {
     { loading ? <div className=' w-full flex justify-center items-center h-96'><ThreeDots height={40} color='white'/> </div> : 
         data.map((e,i) => {
             return (
-                <Link to={`/detail/${e.id}`}>
+                <Link to={`/detail/${e.id}`} key={i}>
                 <div key={i} className='card shadow-lg rounded-lg p-2 hover:-translate-y-3 cursor-pointer  mt-6 transition-all duration-500'>
             <img className='h-60 md:h-72' src={e.imageUrl} alt="Movie Poster" />
             <p><span className='text-gray-500'>Name :</span>{e.title}</p>
             <p className='flex items-center mr-1'><span className='text-gray-500'>Rating :</span>
-            <ReactStars size={20} half={true} value={5} edit={false} /></p>
+            <ReactStars size={20} half={true} value={e.rating / e.rated} edit={false} /></p>
             <p><span className='text-gray-500'>Year :</span>{e.year}</p>
         </div></Link>
             )

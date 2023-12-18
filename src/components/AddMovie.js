@@ -12,7 +12,10 @@ const AddMovie = () => {
         title:"",
         year:"",
         description:"",
-        imageUrl:""
+        imageUrl:"",
+        rating: 0,
+        rated: 0
+        
     }])
 
     const [btnLoading,setBtnLoading] = useState(false)
