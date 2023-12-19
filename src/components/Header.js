@@ -16,8 +16,6 @@ const Header = () => {
           Filmy<span className="text-white">verse</span>
         </span>
       </Link>
-{
-  context.login ? 
 
       <Link to={"/addmovie"}>
         <h1 className="text-lg text-white flex items-center cursor-pointer  hover:bg-black rounded-sm">
@@ -26,18 +24,19 @@ const Header = () => {
             <span className="text-white">Add Movie</span>
           </Button>
         </h1>
-      </Link> : 
-      <Link to={"/login"}>
-        <h1 className="text-lg text-white flex items-center cursor-pointer hover:bg-black rounded-sm">
-          <Button color="secondary">
-            <LoginIcon className="mr-1" color="inherit" />
-            <span className="text-white">Login</span>
-          </Button>
-        </h1>
       </Link> 
-      }
+     
+      
     </div>
   );
 };
 
 export default Header;
+//  <Link to={"/login"}>
+//         <h1 className="text-lg text-white flex items-center cursor-pointer hover:bg-black rounded-sm">
+//           <Button color="secondary">
+//             <LoginIcon className="mr-1" color="inherit" />
+//             <span className="text-white">Login</span>
+//           </Button>
+//         </h1>
+//       </Link> 

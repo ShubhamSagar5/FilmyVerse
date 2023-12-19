@@ -1,17 +1,68 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { TailSpin } from 'react-loader-spinner'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { query ,where,getDoc, getDocs, doc } from 'firebase/firestore'
+import { usersRef } from '../firebase/FireBase'
+import swal from 'sweetalert'
+import { AppState } from '../App'
 
 
-
+var bcrypt = require('bcryptjs');
 const Login = () => {
 
+  const navigate = useNavigate()
+  const appState = useContext(AppState)
   const [formData,setFormData] = useState({
     mobile:"",
     password:""
   })
 
   const [btnLoading,setBtnLoading] = useState(false)
+
+  const login = async() => {
+    setBtnLoading(true)
+    try{
+      
+      const quer = query(usersRef, where('mobile','==',formData.mobile))
+      const querySanpshot = await getDocs(quer)
+
+      querySanpshot.forEach((doc) => {
+        const data = doc.data();
+        const isUser = bcrypt.compareSync(formData.password, data.password);
+        
+        
+        if(isUser){
+          appState.setLogin(true)
+          appState.setUserName(data.name)
+          
+          swal({
+            title: "Logged In",
+            icon: "success",
+            buttons: "Back",
+            timer: 3000,
+          });
+          navigate("/")
+        }
+        else{
+          // swal({
+          //   title: "Invalid Credentials",
+          //   icon: "error",
+          //   buttons: false,
+          //   timer: 3000
+          // })
+        }
+      })
+
+    }catch(err){
+      swal({
+        title: err.message,
+        icon: "fail",
+        buttons: "Back",
+        timer: 3000,
+      });
+    }
+    setBtnLoading(false)
+  }
 
   return (
     <div className='w-full mt-8 flex flex-col justify-center items-center'>
@@ -47,7 +98,7 @@ const Login = () => {
                   ></input>
                 </div>
               </div>
-              <button class="flex mt-5 text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-700 rounded text-lg" >
+              <button class="flex mt-5 text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-700 rounded text-lg" onClick={login}>
                   {btnLoading ? <TailSpin height={25} color="white"/> : 'Login'}
                 </button>
 

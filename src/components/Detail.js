@@ -56,7 +56,7 @@ const Detail = () => {
               {data.title} <span className="text-2xl">({data.year})</span>
             </h1>
 
-            <ReactStars size={20} half={true} value={data.rating / data.rated} edit={false} />
+            <ReactStars size={20} half={true} value={data.rating} edit={false} />
             <p className="mt-2">{data.description}</p>
             <Review id={id} prevRating={data.rating} userRated ={data.rated}/>
           </div>
