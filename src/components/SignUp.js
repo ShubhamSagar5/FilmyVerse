@@ -66,7 +66,7 @@ const SignUp = () => {
         uploadData()
    
       swal({
-        text: "OTP Sent",
+        text: "Registered Successfully",
         icon: "success",
         buttons: false,
         timer: 3000,
@@ -101,9 +101,9 @@ const SignUp = () => {
       <h1 className='text-xl font-bold '>Sign Up</h1>
       {
         otpSend ? <>
-        <div class="p-2 w-full md:w-1/4">
-                <div class="relative">
-                  <label for="message" class="leading-7 text-sm text-gray-300">
+        <div className="p-2 w-full md:w-1/4">
+                <div className="relative">
+                  <label htmlFor="message" className="leading-7 text-sm text-gray-300">
                   Enter OTP
                   </label>
                   <input
@@ -112,19 +112,19 @@ const SignUp = () => {
                     name="message"
                     
                     onChange={(e) => setOTP(e.target.value)}
-                    class="w-full bg-gray-100  rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-10 text-base outline-none text-gray-600 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                    className="w-full bg-gray-100  rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-10 text-base outline-none text-gray-600 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
                   ></input>
                 </div>
               </div> 
-              <button class="flex mt-5 text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-700 rounded text-lg"  onClick={verifyOTP}>
-                  {btnLoading ? <TailSpin height={25} color="white"/> : 'Confirm OTP'}
+              <button className="flex mt-5 text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-700 rounded text-lg"  onClick={verifyOTP}>
+                  {btnLoading ? <TailSpin height={25} color="white"/> : 'Verfiy OTP'}
                 </button> 
         </> : 
         <>
 
-              <div class="p-2 w-full md:w-1/4">
-                <div class="relative">
-                  <label for="message" class="leading-7 text-sm text-gray-300">
+              <div className="p-2 w-full md:w-1/4">
+                <div className="relative">
+                  <label htmlFor="message" className="leading-7 text-sm text-gray-300">
                   Name
                   </label>
                   <input
@@ -133,13 +133,13 @@ const SignUp = () => {
                     name="message"
                     value={formData.name}
                     onChange={(e) => setFormData({...formData,name: e.target.value})}
-                    class="w-full bg-gray-100  rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-10 text-base outline-none text-gray-600 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                    className="w-full bg-gray-100  rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-10 text-base outline-none text-gray-600 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
                   ></input>
                 </div>
               </div>  
-              <div class="p-2 w-full md:w-1/4">
-                <div class="relative">
-                  <label for="message" class="leading-7 text-sm text-gray-300">
+              <div className="p-2 w-full md:w-1/4">
+                <div className="relative">
+                  <label htmlFor="message" className="leading-7 text-sm text-gray-300">
                   Mobile No
                   </label>
                   <input
@@ -148,13 +148,13 @@ const SignUp = () => {
                     name="message"
                     value={formData.mobile}
                     onChange={(e) => setFormData({...formData,mobile: e.target.value})}
-                    class="w-full bg-gray-100  rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-10 text-base outline-none text-gray-600 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                    className="w-full bg-gray-100  rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-10 text-base outline-none text-gray-600 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
                   ></input>
                 </div>
               </div>  
-              <div class="p-2 w-full md:w-1/4">
-                <div class="relative">
-                  <label for="message" class="leading-7 text-sm text-gray-300">
+              <div className="p-2 w-full md:w-1/4">
+                <div className="relative">
+                  <label htmlFor="message" className="leading-7 text-sm text-gray-300">
                     Password
                   </label>
                   <input
@@ -163,11 +163,12 @@ const SignUp = () => {
                     name="message"
                     value={formData.password}
                     onChange={(e) => setFormData({...formData,password: e.target.value})}
-                    class="w-full bg-gray-100  rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-10 text-base outline-none text-gray-600 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                    className="w-full bg-gray-100  rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-10 text-base outline-none text-gray-600 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                  
                   ></input>
                 </div>
               </div>
-              <button class="flex mt-5 text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-700 rounded text-lg" onClick={requestOtp} >
+              <button className="flex mt-5 text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-700 rounded text-lg" onClick={requestOtp} >
                   {btnLoading ? <TailSpin height={25} color="white"/> : 'Request OTP'}
                 </button>
 

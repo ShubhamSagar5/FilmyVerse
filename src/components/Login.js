@@ -30,34 +30,36 @@ const Login = () => {
         const data = doc.data();
         const isUser = bcrypt.compareSync(formData.password, data.password);
         
+        console.log(isUser)
         
-        if(isUser){
+        if(isUser === true){
           appState.setLogin(true)
           appState.setUserName(data.name)
           
           swal({
             title: "Logged In",
             icon: "success",
-            buttons: "Back",
+            buttons: false,
             timer: 3000,
           });
           navigate("/")
         }
         else{
-          // swal({
-          //   title: "Invalid Credentials",
-          //   icon: "error",
-          //   buttons: false,
-          //   timer: 3000
-          // })
+          swal({
+            title: "Invalid Credentials",
+            icon: "error",
+            buttons: false,
+            timer: 3000
+          })
         }
       })
 
     }catch(err){
+      console.log(err.message)
       swal({
         title: err.message,
-        icon: "fail",
-        buttons: "Back",
+        icon: "error",
+        buttons: false,
         timer: 3000,
       });
     }
@@ -68,9 +70,9 @@ const Login = () => {
     <div className='w-full mt-8 flex flex-col justify-center items-center'>
       <h1 className='text-xl font-bold '>Login</h1>
       
-              <div class="p-2 w-full md:w-1/4">
-                <div class="relative">
-                  <label for="message" class="leading-7 text-sm text-gray-300">
+              <div className="p-2 w-full md:w-1/4">
+                <div className="relative">
+                  <label htmlFor="message" className="leading-7 text-sm text-gray-300">
                   Mobile No
                   </label>
                   <input
@@ -79,13 +81,14 @@ const Login = () => {
                     name="message"
                     value={formData.mobile}
                     onChange={(e) => setFormData({...formData,mobile: e.target.value})}
-                    class="w-full bg-gray-100  rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-10 text-base outline-none text-gray-600 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                    className="w-full bg-gray-100  rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-10 text-base outline-none text-gray-600 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                    required
                   ></input>
                 </div>
               </div>  
-              <div class="p-2 w-full md:w-1/4">
-                <div class="relative">
-                  <label for="message" class="leading-7 text-sm text-gray-300">
+              <div className="p-2 w-full md:w-1/4">
+                <div className="relative">
+                  <label htmlFor="message" className="leading-7 text-sm text-gray-300">
                     Password
                   </label>
                   <input
@@ -94,11 +97,11 @@ const Login = () => {
                     name="message"
                     value={formData.password}
                     onChange={(e) => setFormData({...formData,password: e.target.value})}
-                    class="w-full bg-gray-100  rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-10 text-base outline-none text-gray-600 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                    className="w-full bg-gray-100  rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-10 text-base outline-none text-gray-600 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
                   ></input>
                 </div>
               </div>
-              <button class="flex mt-5 text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-700 rounded text-lg" onClick={login}>
+              <button className="flex mt-5 text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-700 rounded text-lg" onClick={login}>
                   {btnLoading ? <TailSpin height={25} color="white"/> : 'Login'}
                 </button>
 
