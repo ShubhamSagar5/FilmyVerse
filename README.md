@@ -35,3 +35,17 @@
              - redirect to Home Page
 
     
+# Steps 
+- Filmyverse React Project | Tailwindcss | Firebase |  Firestore DB | Mobile OTP Authentication
+- Styling Header
+- Styling Movies Cards
+- Styling Add New Movies Section
+- Firebase Setup
+- Styling Detail Page
+- Creating Reviews Section
+- Authentication Setup
+- Styling Login Page
+- Styling Signup Page
+- Login Logic
+- Fixing Application Errors
+- Hosting Filmyverse
