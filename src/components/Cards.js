@@ -28,7 +28,7 @@ const Cards = () => {
     },[])
 
     return (
-    <div className='flex flex-wrap md:flex-row  md:flex-wrap px-3 mt-2 '>
+    <div className='flex flex-wrap items-center justify-center md:flex-row  md:flex-wrap px-3 mt-2 '>
     { loading ? <div className=' w-full flex justify-center items-center h-96'><ThreeDots height={40} color='white'/> </div> : 
         data.map((e,i) => {
             return (
